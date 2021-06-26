@@ -1,0 +1,83 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    background: linear-gradient(to right, rgb(33, 1, 75),rgb(137, 37, 251));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.relogio{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(170, 252, 255);
+    border-radius: 50%;
+    border: 10px solid black;
+}
+.relogio .numero{
+    --rotacao:0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotacao));
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+.relogio .n1{ --rotacao: 30deg; }
+.relogio .n2{ --rotacao: 60deg; }
+.relogio .n3{ --rotacao: 90deg; }
+.relogio .n4{ --rotacao: 120deg; }
+.relogio .n5{ --rotacao: 150deg; }
+.relogio .n6{ --rotacao: 180deg; }
+.relogio .n7{ --rotacao: 210deg; }
+.relogio .n8{ --rotacao: 240deg; }
+.relogio .n9{ --rotacao: 270deg; }
+.relogio .n10{ --rotacao: 300deg; }
+.relogio .n11{ --rotacao: 330deg; }
+.relogio .n12{ --rotacao: 360deg; }
+
+.relogio .ponteiro{
+    --rotacao: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: black;
+    border: 1px solid white=0rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translate(-50%) rotate(calc(var(--rotacao) * 1deg));
+}
+.relogio::after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.relogio .ponteiro.segundo{
+    width: 4px;
+    height: 45%;
+    background-color: red;
+}
+.relogio .ponteiro.minuto{
+    width: 7px;
+    height: 40%;
+    background-color:black;
+}
+.relogio .ponteiro.hora{
+    width: 10px;
+    height: 35%;
+    background-color:black;
+}
